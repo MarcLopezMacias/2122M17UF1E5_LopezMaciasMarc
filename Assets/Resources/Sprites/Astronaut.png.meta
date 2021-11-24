@@ -254,39 +254,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones:
-      - name: bone_1
+      - name: Foot
         position: {x: 7.972434, y: 0.25064087, z: 0}
         rotation: {x: 0, y: 0, z: 0.6827077, w: 0.7306916}
-        length: 6.9690714
+        length: 6.969072
         parentId: -1
-      - name: bone_2
-        position: {x: 6.969071, y: -0.0000005809195, z: 0}
+      - name: Waist
+        position: {x: 6.9690714, y: -0.00000054858026, z: 0}
         rotation: {x: 0, y: 0, z: 0.03742486, w: 0.99929947}
-        length: 7.177955
+        length: 7.1779556
         parentId: 0
-      - name: bone_3
-        position: {x: 7.177955, y: -0.0000016964018, z: 0}
-        rotation: {x: 0, y: 0, z: 0.017915666, w: 0.99983954}
-        length: 3.5168521
+      - name: Chest
+        position: {x: 7.1779556, y: -0.0000017030726, z: 0}
+        rotation: {x: 0, y: 0, z: 0.017916497, w: 0.9998395}
+        length: 3.5168533
         parentId: 1
-      - name: bone_4
-        position: {x: 3.5168526, y: 0.000004142408, z: 0}
-        rotation: {x: 0, y: 0, z: -0.148052, w: 0.9889796}
+      - name: Neck
+        position: {x: 3.5168533, y: -0.0000016672457, z: 0}
+        rotation: {x: 0, y: 0, z: -0.14805284, w: 0.98897946}
         length: 2.5930846
         parentId: 2
-      - name: bone_5
-        position: {x: 2.5930853, y: 0.000000054678367, z: 0}
+      - name: Mandible
+        position: {x: 2.5930855, y: 0.00000018906644, z: 0}
         rotation: {x: 0, y: 0, z: -0.05726178, w: 0.9983592}
-        length: 4.036201
+        length: 4.0362005
         parentId: 3
-      - name: bone_6
-        position: {x: 4.036201, y: -0.0000034458344, z: 0}
-        rotation: {x: 0, y: 0, z: 0.33009276, w: 0.9439485}
-        length: 6.207178
+      - name: Face
+        position: {x: 4.036201, y: -0.0000036746744, z: 0}
+        rotation: {x: 0, y: 0, z: 0.3300929, w: 0.94394845}
+        length: 6.207177
         parentId: 4
-      - name: bone_7
-        position: {x: 6.2071776, y: 0.00000052229984, z: 0}
-        rotation: {x: 0, y: 0, z: 0.29053068, w: 0.9568657}
+      - name: ToppityTop
+        position: {x: 6.2071767, y: 0.00000022259712, z: 0}
+        rotation: {x: 0, y: 0, z: 0.2905306, w: 0.9568658}
         length: 2.9631522
         parentId: 5
       spriteID: f4a4da522c0a1dc46891a49f527a4ad2
@@ -362,16 +362,16 @@ TextureImporter:
         boneIndex[2]: 0
         boneIndex[3]: 0
       - weight[0]: 0.9535023
-        weight[1]: 0.046497762
+        weight[1]: 0.046497703
         weight[2]: 0
         weight[3]: 0
         boneIndex[0]: 0
         boneIndex[1]: 1
         boneIndex[2]: 0
         boneIndex[3]: 0
-      - weight[0]: 0.5499172
+      - weight[0]: 0.5499173
         weight[1]: 0.3890576
-        weight[2]: 0.0610251
+        weight[2]: 0.06102511
         weight[3]: 0
         boneIndex[0]: 1
         boneIndex[1]: 0
@@ -482,7 +482,7 @@ TextureImporter:
         boneIndex[2]: 0
         boneIndex[3]: 0
       - weight[0]: 0.97774345
-        weight[1]: 0.022256613
+        weight[1]: 0.022256553
         weight[2]: 0
         weight[3]: 0
         boneIndex[0]: 0
@@ -536,44 +536,44 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones:
-      - name: bone_1
+      - name: RightLeg
         position: {x: 1.1988678, y: 1.0299683, z: 0}
         rotation: {x: 0, y: 0, z: 0.32100585, w: 0.9470772}
         length: 9.781957
         parentId: -1
-      - name: bone_2
+      - name: LeftLeg
         position: {x: 15.929607, y: 1.1224213, z: 0}
         rotation: {x: 0, y: 0, z: 0.9394607, w: 0.34265682}
         length: 9.142462
         parentId: -1
-      - name: bone_3
-        position: {x: 9.142462, y: -0.0000024765259, z: 0}
-        rotation: {x: 0, y: 0, z: -0.48189408, w: 0.87622947}
-        length: 5.753039
+      - name: Waist
+        position: {x: 9.142461, y: -0.0000017468005, z: 0}
+        rotation: {x: 0, y: 0, z: -0.4818942, w: 0.8762294}
+        length: 5.7530403
         parentId: 1
-      - name: bone_4
-        position: {x: 5.7530394, y: -0.00000012255808, z: 0}
-        rotation: {x: 0, y: 0, z: 0.10498786, w: 0.9944735}
-        length: 3.2451806
+      - name: Chest
+        position: {x: 5.75304, y: 0.0000007831646, z: 0}
+        rotation: {x: 0, y: 0, z: 0.10498815, w: 0.9944735}
+        length: 3.2451801
         parentId: 2
-      - name: bone_5
-        position: {x: 3.2451804, y: 0.0000008901455, z: 0}
-        rotation: {x: 0, y: 0, z: 0.092146985, w: 0.9957454}
-        length: 0.9568417
+      - name: Neck
+        position: {x: 3.24518, y: -0.00000044732363, z: 0}
+        rotation: {x: 0, y: 0, z: 0.092146836, w: 0.9957454}
+        length: 0.95684236
         parentId: 3
-      - name: bone_6
-        position: {x: 0.9568419, y: -0.000000117324305, z: 0}
-        rotation: {x: 0, y: 0, z: -0.29634142, w: 0.9550821}
-        length: 6.5403566
+      - name: Mandible
+        position: {x: 0.9568428, y: 0.000000059286208, z: 0}
+        rotation: {x: 0, y: 0, z: -0.29634133, w: 0.9550821}
+        length: 6.540357
         parentId: 4
-      - name: bone_7
-        position: {x: 6.540357, y: 0.0000007680932, z: 0}
+      - name: Face
+        position: {x: 6.540356, y: 0.000000022604468, z: 0}
         rotation: {x: 0, y: 0, z: 0.41211322, w: 0.9111327}
-        length: 6.7737336
+        length: 6.7737346
         parentId: 5
-      - name: bone_8
-        position: {x: 6.773734, y: -0.00000027075714, z: 0}
-        rotation: {x: 0, y: 0, z: 0.3646771, w: 0.93113405}
+      - name: ToppityTop
+        position: {x: 6.773734, y: -0.0000012224261, z: 0}
+        rotation: {x: 0, y: 0, z: 0.36467713, w: 0.9311341}
         length: 3.2744856
         parentId: 6
       spriteID: 81640a2191f29254195c38d71a36bfb2
@@ -597,19 +597,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones:
-      - name: bone_1
+      - name: Shoulder
         position: {x: 0.13855362, y: 2.3316345, z: 0}
         rotation: {x: 0, y: 0, z: -0.04214203, w: 0.99911165}
-        length: 5.66621
+        length: 5.6662107
         parentId: -1
-      - name: bone_2
-        position: {x: 5.66621, y: -0.000000008234849, z: 0}
+      - name: Elbow
+        position: {x: 5.6662107, y: 0.000000031919217, z: 0}
         rotation: {x: 0, y: 0, z: 0.02329273, w: 0.9997287}
-        length: 4.217665
+        length: 4.2176657
         parentId: 0
-      - name: bone_3
-        position: {x: 4.217665, y: -0.00000029273627, z: 0}
-        rotation: {x: 0, y: 0, z: -0.043305542, w: 0.99906194}
+      - name: Hand
+        position: {x: 4.2176657, y: -0.00000037589734, z: 0}
+        rotation: {x: 0, y: 0, z: -0.043305542, w: 0.9990619}
         length: 1.9233845
         parentId: 1
       spriteID: 7cbbad4cfa32d524588159f552113399
@@ -676,7 +676,7 @@ TextureImporter:
         boneIndex[1]: 1
         boneIndex[2]: 0
         boneIndex[3]: 0
-      - weight[0]: 0.8194677
+      - weight[0]: 0.81946766
         weight[1]: 0.1805323
         weight[2]: 0
         weight[3]: 0

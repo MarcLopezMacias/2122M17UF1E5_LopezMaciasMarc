@@ -10,9 +10,9 @@ using UnityEngine;
 
 public class HorizontalMovement : MonoBehaviour
 {
-    public float jumpSpeed;
-    public float speed;
-    public Rigidbody2D rb;
+    private float jumpSpeed;
+    private float speed;
+    private Rigidbody2D rb;
 
     private Vector2 playerInput;
     private bool shouldJump;
