@@ -69,6 +69,7 @@ public class AspectRatio : MonoBehaviour
     void Update()
     {
         RescaleCamera();
+        
     }
 
 }

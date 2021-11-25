@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour
 
     public static UIController UIController;
 
-    public int Score { get { return _score; } }
-    private int _score;
+    public int MaxScore { get { return _maxScoreY; } }
+    private int _maxScoreY;
 
     public List<GameObject> EnemiesInGame;
 
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _score = 0;
+        _maxScoreY = 0;
         _player = GameObject.FindWithTag("Player");
 
         UIController = GameObject.Find("Canvas").GetComponent<UIController>();
@@ -49,17 +49,26 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        checkMaxScore();
+    }
+
+    private void checkMaxScore()
+    {
+        double PlayerPosY = _player.transform.position.y;
+        if (PlayerPosY > _maxScoreY)
+        {
+            _maxScoreY = (int)_player.transform.position.y;
+        }
     }
 
     public int GetScore()
     {
-        return Score;
+        return MaxScore;
     }
 
     public void IncreaseScore(int value)
     {
-        _score += value;
+        _maxScoreY += value;
     }
 
     public int GetNumberOfEnemiesAlive()

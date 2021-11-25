@@ -14,9 +14,11 @@ public class UIController : MonoBehaviour
     public Text FrameText;
     private int FrameCount;
 
-    public Text HeartsText;
-    public Text EnemiesText;
-    public Text ScoreText;
+    public Text PlayerNameText;
+
+    public Text LifesText;
+    // public Text EnemiesText;
+    public Text MaxScoreText;
 
     public Text GameOverText;
     [SerializeField]
@@ -36,19 +38,22 @@ public class UIController : MonoBehaviour
         FrameCount++;
         FrameText.text = "Frames: " + FrameCount;
 
-        int Hearts = GameManager.Instance.Player.GetComponent<DataPlayer>().Hearts;
-        HeartsText.text = "Hearts: " + Hearts;
+        int Lifes = GameManager.Instance.Player.GetComponent<DataPlayer>().Lifes;
+        LifesText.text = "Lifes: " + Lifes;
 
-        EnemiesText.text = "Threats: " + GameManager.Instance.GetNumberOfEnemiesAlive();
+        // EnemiesText.text = "Threats: " + GameManager.Instance.GetNumberOfEnemiesAlive();
 
-        ScoreText.text = "XP: " + GameManager.Instance.Score;
+        MaxScoreText.text = "Top Score: " + GameManager.Instance.MaxScore;
 
         GameOverText.text = "";
+
+        PlayerNameText.text = GameManager.Instance.Player.GetComponent<DataPlayer>().GetName();
+
     }
 
     public IEnumerator GameOver()
     {
         GameOverText.text = GameOverString;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(GameOverScreenTime);
     }
 }

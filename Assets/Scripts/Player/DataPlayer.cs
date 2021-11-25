@@ -33,7 +33,7 @@ public class DataPlayer : MonoBehaviour
 {
 
     [SerializeField]
-    private string Name, Surname;
+    private string FullName;
 
     [SerializeField]
     private float Height, Speed, JumpSpeed, Weight;
@@ -42,9 +42,9 @@ public class DataPlayer : MonoBehaviour
     private PlayerKind PlayerKind;
 
     [SerializeField]
-    private int _hearts;
-    public int Hearts { get { return _hearts; } }
-
+    private int _lifes;
+    public int Lifes { get { return _lifes; } }
+    public int MaxLifes;
 
     // Start is called before the first frame update
     void Start()
@@ -85,7 +85,7 @@ public class DataPlayer : MonoBehaviour
 
     public string GetName()
     {
-        return Name;
+        return FullName;
     }
 
     public PlayerKind GetKind()
@@ -95,7 +95,7 @@ public class DataPlayer : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        _hearts -= amount;
+        _lifes -= amount;
         if (!IsPlayerAlive())
         {
             Die();
@@ -104,12 +104,12 @@ public class DataPlayer : MonoBehaviour
 
     private bool IsPlayerAlive()
     {
-        if (_hearts > 0) return true; else return false;
+        if (_lifes > 0) return true; else return false;
     }
 
     public int GetHearts()
     {
-        return Hearts;
+        return Lifes;
     }
 
     public void Die()

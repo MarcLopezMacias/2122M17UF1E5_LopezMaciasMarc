@@ -586,14 +586,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a709286069f9dae4b8d1b0f03849f4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Astro
-  Surname: Guy
+  FullName: Astro Guy
   Height: 1.69
-  Speed: 100
-  JumpSpeed: 30
+  Speed: 50
+  JumpSpeed: 69
   Weight: 69
   PlayerKind: 3
-  _hearts: 2
+  _lifes: 2
+  MaxLifes: 3
 --- !u!1 &2519402878445691561
 GameObject:
   m_ObjectHideFlags: 0
