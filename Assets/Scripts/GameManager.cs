@@ -21,10 +21,12 @@ public class GameManager : MonoBehaviour
 
     public static UIController UIController;
 
-    public int MaxScore { get { return _maxScoreY; } }
-    private int _maxScoreY;
+    public float MaxScore { get { return _maxScoreY; } }
+    private float _maxScoreY;
 
     public List<GameObject> EnemiesInGame;
+
+    private static GameObject MainCamera;
 
     private void Awake()
     {
@@ -44,26 +46,24 @@ public class GameManager : MonoBehaviour
         _player = GameObject.FindWithTag("Player");
 
         UIController = GameObject.Find("Canvas").GetComponent<UIController>();
+
+        MainCamera = GameObject.FindWithTag("MainCamera");
     }
 
     // Update is called once per frame
     void Update()
     {
-        checkMaxScore();
+
     }
 
-    private void checkMaxScore()
-    {
-        double PlayerPosY = _player.transform.position.y;
-        if (PlayerPosY > _maxScoreY)
-        {
-            _maxScoreY = (int)_player.transform.position.y;
-        }
-    }
-
-    public int GetScore()
+    public float GetScore()
     {
         return MaxScore;
+    }
+
+    public void SetScore(float value)
+    {
+        _maxScoreY = value;
     }
 
     public void IncreaseScore(int value)
@@ -81,21 +81,47 @@ public class GameManager : MonoBehaviour
      * UN "SCENE_CHANGER" O ALGO AIXI
      */
 
-    public IEnumerator GameOver()
+    public void ResetStage()
+    {
+        ResetCameraPosition();
+        ResetPlayerPosition();
+    }
+
+    public void ResetPlayerPosition()
+    {
+        _player.GetComponent<DataPlayer>().ResetPosition();
+    }
+
+    public void ResetCameraPosition()
+    {
+        MainCamera.GetComponent<FollowPlayer>().ResetPosition();
+    }
+
+    public void GameOver()
     {
         UIController.GameOver();
-        yield return new WaitForSeconds(5);
+        StartCoroutine(WaitForGameOverScreen());
+    }
+
+    private void ResetGame()
+    {
         GoToStartScreen();
+    }
+
+    private IEnumerator WaitForGameOverScreen()
+    {
+        yield return new WaitForSeconds(UIController.GameOverScreenTime);
+        ResetGame();
     }
 
     private void GoToStartScreen()
     {
-        
+        SceneManager.LoadScene("E5_Start");
     }
 
     public void GoToGameScreen()
     {
-        
+        SceneManager.LoadScene("E5");
     }
 
 }

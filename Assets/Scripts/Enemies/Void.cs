@@ -20,10 +20,8 @@ public class Void : MonoBehaviour
     {
         if (collision.CompareTag("Player") || collision.CompareTag("Jumping"))
         {
-            Debug.Log("WITH PLAYER");
             GameObject cl = collision.gameObject;
-            cl.GetComponent<DataPlayer>().Die();
+            cl.GetComponent<DataPlayer>().DecreaseLifes(1);
         }
-        //Debug.Log(collision.tag);
     }
 }

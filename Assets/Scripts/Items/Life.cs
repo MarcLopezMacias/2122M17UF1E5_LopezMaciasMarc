@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cat : Enemy
+public class Life : Item
 {
 
     // Start is called before the first frame update
     void Start()
     {
-        XP = 1;
-        Damage = 1;
+        Amount = 1;
     }
 
     // Update is called once per frame
@@ -20,14 +19,11 @@ public class Cat : Enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("COLLIDED");
-        if (collision.CompareTag("Player"))
+        if (CollidedWithPlayer(collision))
         {
-            Debug.Log("WITH PLAYER");
             GameObject cl = collision.gameObject;
-            cl.GetComponent<DataPlayer>().TakeDamage(Damage);
+            cl.GetComponent<DataPlayer>().IncreaseLifes(Amount);
         }
         Die();
     }
-
 }

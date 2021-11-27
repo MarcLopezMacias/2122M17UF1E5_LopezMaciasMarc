@@ -31,7 +31,7 @@ public class Growth : MonoBehaviour
     private int Cooldown = 15;
 
     [SerializeField]
-    private bool IsActive = false, IsOnCooldown = false;
+    private bool IsOnCooldown = false;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +51,6 @@ public class Growth : MonoBehaviour
 
     private IEnumerator Grow()
     {
-        IsActive = true;
         IsOnCooldown = true;
         for(int i = 0; i < Duration / 3; i++)
         {
@@ -65,9 +64,7 @@ public class Growth : MonoBehaviour
                 transform.localScale = tempScale;
             }
         }
-        IsActive = false;
-        float StillWait = (Duration / 3) * 2;
-        yield return new WaitForSeconds(StillWait);
+        yield return new WaitForSeconds(Cooldown-Duration);
         IsOnCooldown = false;
         transform.localScale = RegularScale;
     }

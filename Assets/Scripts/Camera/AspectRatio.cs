@@ -7,6 +7,8 @@ public class AspectRatio : MonoBehaviour
     private int ScreenSizeX = 0;
     private int ScreenSizeY = 0;
 
+    private Vector2 ViewPortRectScale;
+
     private void RescaleCamera()
     {
 
@@ -62,6 +64,7 @@ public class AspectRatio : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        ViewPortRectScale = new Vector2(0.3417737f, 0.3164526f);
         RescaleCamera();
     }
 

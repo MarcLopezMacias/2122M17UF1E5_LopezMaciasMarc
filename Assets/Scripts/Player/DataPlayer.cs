@@ -46,16 +46,22 @@ public class DataPlayer : MonoBehaviour
     public int Lifes { get { return _lifes; } }
     public int MaxLifes;
 
+    Vector2 InitialPosition;
+
+    private float _maxScoreY;
+
+    private int enemiesSlain;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        InitialPosition = gameObject.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        checkMaxScore();
     }
 
     public float GetSpeed()
@@ -93,13 +99,20 @@ public class DataPlayer : MonoBehaviour
         return PlayerKind;
     }
 
-    public void TakeDamage(int amount)
+    public void DecreaseLifes(int amount)
     {
         _lifes -= amount;
-        if (!IsPlayerAlive())
-        {
-            Die();
-        }
+        Die();
+    }
+
+    public void IncreaseLifes(int amount)
+    {
+        if(_lifes < MaxLifes) _lifes+= amount;
+    }
+
+    private void Die()
+    {
+        GameManager.Instance.ResetStage();
     }
 
     private bool IsPlayerAlive()
@@ -112,9 +125,8 @@ public class DataPlayer : MonoBehaviour
         return Lifes;
     }
 
-    public void Die()
+    public void GameOver()
     {
-        Debug.Log("Player SHOULD DIE");
         GameManager.Instance.GameOver();
     }
 
@@ -123,4 +135,35 @@ public class DataPlayer : MonoBehaviour
         
     }
 
+    public void ResetPosition()
+    {
+        if (!IsPlayerAlive())
+        {
+            GameOver();
+        }
+        else
+        {
+            gameObject.transform.position = InitialPosition;
+        }
+    }
+
+    private void checkMaxScore()
+    {
+        float PlayerPosY = gameObject.transform.position.y;
+        if (PlayerPosY > _maxScoreY)
+        {
+            _maxScoreY = PlayerPosY;
+            GameManager.Instance.SetScore(_maxScoreY);
+        }
+    }
+
+    public int GetEnemiesSlain()
+    {
+        return enemiesSlain;
+    }
+
+    public void IncreaseEnemiesSlain(int amount)
+    {
+        enemiesSlain += amount;
+    }
 }

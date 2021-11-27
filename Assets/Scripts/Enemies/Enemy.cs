@@ -37,7 +37,14 @@ public class Enemy : MonoBehaviour
     protected void Die()
     {
         GameManager.Instance.IncreaseScore(XP);
+        GameManager.Instance.Player.GetComponent<DataPlayer>().IncreaseEnemiesSlain(1);
         GameManager.Instance.EnemiesInGame.Remove(this.gameObject);
         Destroy(this.gameObject);
+    }
+
+    protected bool CollidedWithPlayer(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") || collision.CompareTag("onFloor") || collision.CompareTag("Jumping")) return true;
+        else return false;
     }
 }
