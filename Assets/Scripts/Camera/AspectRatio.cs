@@ -9,6 +9,8 @@ public class AspectRatio : MonoBehaviour
 
     private Vector2 ViewPortRectScale;
 
+    
+
     private void RescaleCamera()
     {
 

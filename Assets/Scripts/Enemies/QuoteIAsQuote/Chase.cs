@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Chase : MonoBehaviour
 {
-    private Vector3 playerPosition;
     private Rigidbody2D rb;
 
     [SerializeField]
@@ -12,12 +11,15 @@ public class Chase : MonoBehaviour
 
     private Vector2 toMove;
 
+    [SerializeField]
+    private int factor = 10;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        playerPosition = GameManager.Instance.Player.transform.position;
-        MoveSpeed /= 10;
+        if (MoveSpeed != null) MoveSpeed /= factor;
+        else MoveSpeed = 2 / factor;
     }
 
     // Update is called once per frame

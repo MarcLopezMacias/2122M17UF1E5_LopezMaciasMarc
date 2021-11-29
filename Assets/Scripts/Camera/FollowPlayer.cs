@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    float minHeightToFollow, playerHeight, previousHeight;
-
-    [SerializeField]
-    
+    float minHeightToFollow, playerHeight, previousHeight; 
     
     Vector3 initialPosition;
 
