@@ -32,5 +32,13 @@ public class FollowPlayer : MonoBehaviour
     public void ResetPosition()
     {
         gameObject.transform.position = initialPosition;
+        ResetVariables();
+    }
+
+    private void ResetVariables()
+    {
+        Start();
+        playerHeight = 0;
+        previousHeight = 0;
     }
 }

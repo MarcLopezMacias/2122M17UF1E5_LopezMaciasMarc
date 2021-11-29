@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class Chase : MonoBehaviour
 {
-    private Rigidbody2D rb;
-
     [SerializeField]
     float MoveSpeed;
-
-    private Vector2 toMove;
 
     [SerializeField]
     private int factor = 10;
 
+    private float playerX;
+
     // Start is called before the first frame update
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
         if (MoveSpeed != null) MoveSpeed /= factor;
         else MoveSpeed = 2 / factor;
     }
@@ -25,8 +22,15 @@ public class Chase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        toMove = new Vector2(MoveSpeed * Time.fixedDeltaTime, 0f);
-        rb.AddForce(toMove, ForceMode2D.Impulse);
+        playerX = GameManager.Instance.Player.transform.position.x;
+        if(playerX > gameObject.transform.position.x)
+        {
+            transform.Translate(new Vector3(MoveSpeed * Time.deltaTime, 0f, 0f));
+        }
+        else
+        {
+            transform.Translate(new Vector3((-1) * MoveSpeed * Time.deltaTime, 0f, 0f));
+        }
     }
 
 }
