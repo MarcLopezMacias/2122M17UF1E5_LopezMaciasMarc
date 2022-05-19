@@ -9,6 +9,7 @@ TagManager:
   - Void
   - Jumping
   - Item
+  - Floor
   layers:
   - Default
   - TransparentFX

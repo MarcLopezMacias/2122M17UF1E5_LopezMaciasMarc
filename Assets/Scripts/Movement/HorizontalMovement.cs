@@ -17,7 +17,6 @@ public class HorizontalMovement : MonoBehaviour
     private Vector2 playerInput;
     private bool shouldJump;
     private bool canJump;
-    private bool canDoubleJump;
 
     [SerializeField]
     private int multiplyingFactor = 1000;
@@ -44,11 +43,6 @@ public class HorizontalMovement : MonoBehaviour
             canJump = false;
             shouldJump = true;
         }
-        if (canDoubleJump && Input.GetButtonDown("Jump"))
-        {
-            canDoubleJump = false;
-            shouldJump = true;
-        }
 
     }
 
@@ -72,8 +66,11 @@ public class HorizontalMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         // allow jumping again
-        canJump = true;
-        gameObject.transform.tag = "onFloor";
+        if (col.gameObject.CompareTag("Floor"))
+        {
+            canJump = true;
+            gameObject.transform.tag = "onFloor";
+        }
     }
 
     private void OnCollisionExit2D(Collision2D col)

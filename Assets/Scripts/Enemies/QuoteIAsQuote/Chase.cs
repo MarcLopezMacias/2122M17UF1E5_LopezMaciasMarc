@@ -5,32 +5,39 @@ using UnityEngine;
 public class Chase : MonoBehaviour
 {
     [SerializeField]
-    float MoveSpeed;
+    float MoveSpeed = 1f;
 
     [SerializeField]
-    private int factor = 10;
+    float speedMultiplier = 0.5f;
 
-    private float playerX;
+    float chasingHeightOffset = 0.25f;
+
+    private Vector2 playerPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (MoveSpeed != null) MoveSpeed /= factor;
-        else MoveSpeed = 2 / factor;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerX = GameManager.Instance.Player.transform.position.x;
-        if(playerX > gameObject.transform.position.x)
+        // CHECK HEIGHT
+        playerPosition = GameManager.Instance.Player.transform.position;
+        if(playerPosition.y >= gameObject.transform.position.y - chasingHeightOffset)
         {
-            transform.Translate(new Vector3(MoveSpeed * Time.deltaTime, 0f, 0f));
+            // THEN MOVE LEFT OR RIGHT
+            if (playerPosition.x > gameObject.transform.position.x)
+            {
+                transform.Translate(new Vector3(speedMultiplier * MoveSpeed * Time.deltaTime, 0f, 0f));
+            }
+            else
+            {
+                transform.Translate(new Vector3((-1) * speedMultiplier * MoveSpeed * Time.deltaTime, 0f, 0f));
+            }
         }
-        else
-        {
-            transform.Translate(new Vector3((-1) * MoveSpeed * Time.deltaTime, 0f, 0f));
-        }
+
     }
 
 }
