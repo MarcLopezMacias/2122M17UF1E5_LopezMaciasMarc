@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     private static GameObject MainCamera;
 
+    public bool GameLoop;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
