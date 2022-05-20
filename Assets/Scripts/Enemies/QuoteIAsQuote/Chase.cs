@@ -14,6 +14,9 @@ public class Chase : MonoBehaviour
 
     private Vector2 playerPosition;
 
+    private bool patrolling;
+    private int waitingSeconds = 5;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +40,20 @@ public class Chase : MonoBehaviour
                 transform.Translate(new Vector3((-1) * speedMultiplier * MoveSpeed * Time.deltaTime, 0f, 0f));
             }
         }
+        else
+        {
+            if (!patrolling)
+            {
+                // StartCoroutine(Patrol());
+            }
+        }
 
+    }
+
+    private IEnumerator Patrol()
+    {
+        // FML
+        yield return new WaitForSeconds(waitingSeconds);
     }
 
 }

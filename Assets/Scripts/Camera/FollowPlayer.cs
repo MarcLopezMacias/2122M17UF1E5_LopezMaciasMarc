@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    float minHeightToFollow, playerHeight, previousHeight; 
+
+    [SerializeField]
+    public float minHeightToFollow;
+    [SerializeField]
+    public float heightOffset;
+
+    private float playerHeight, previousHeight; 
     
     Vector3 initialPosition;
-
     Vector3 newPosition;
+
 
     // Start is called before the first frame update
     void Start()
     {
         initialPosition = gameObject.transform.position;
-        minHeightToFollow = 0.5f;
     }
 
     // Update is called once per frame
@@ -24,7 +29,7 @@ public class FollowPlayer : MonoBehaviour
         if (previousHeight < playerHeight) previousHeight = playerHeight;
         if(playerHeight > minHeightToFollow && playerHeight >= previousHeight)
         {
-            newPosition = new Vector3(initialPosition.x, playerHeight, initialPosition.z);
+            newPosition = new Vector3(initialPosition.x, playerHeight - heightOffset, initialPosition.z);
             gameObject.transform.position = newPosition;
         }
     }

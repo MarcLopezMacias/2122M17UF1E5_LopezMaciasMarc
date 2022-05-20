@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
 
     public bool GameLoop;
 
+    private float happinessValue = 4.20f;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -60,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     public float GetScore()
     {
-        return MaxScore;
+        return MaxScore * happinessValue;
     }
 
     public void SetScore(float value)

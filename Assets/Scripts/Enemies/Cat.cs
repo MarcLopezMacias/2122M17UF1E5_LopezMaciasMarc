@@ -20,10 +20,8 @@ public class Cat : Enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("COLLIDED");
         if (collision.CompareTag("Player") || collision.CompareTag("Jumping"))
         {
-            Debug.Log("WITH PLAYER");
             GameObject cl = collision.gameObject;
             cl.GetComponent<DataPlayer>().DecreaseLifes(1);
             Die();

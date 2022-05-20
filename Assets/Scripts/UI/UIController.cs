@@ -49,7 +49,7 @@ public class UIController : MonoBehaviour
 
             EnemiesText.text = "Threats: " + GameManager.Instance.GetNumberOfEnemiesAlive();
 
-            MaxScoreText.text = "Top Score: " + GameManager.Instance.GetScore();
+            MaxScoreText.text = "Top Score: " + (int)GameManager.Instance.GetScore();
 
             GameOverText.text = "";
             GameOverScoreText.text = "";
@@ -62,7 +62,7 @@ public class UIController : MonoBehaviour
             MaxScoreText.text = "";
 
             GameOverText.text = GameOverString;
-            GameOverScoreText.text = "Final Score: " + GameManager.Instance.GetScore();
+            GameOverScoreText.text = "Final Score: " + (int)GameManager.Instance.GetScore();
 
             EnemiesSlainText.text = "Enemies Slain: " + GameManager.Instance.Player.GetComponent<DataPlayer>().GetEnemiesSlain();
         }
