@@ -70,7 +70,7 @@ public class PlatformSpawner : MonoBehaviour
     {
         public struct Platforms
         {
-            public const float minDistanceBetweenPlatforms = 2.5f;
+            public const float minDistanceBetweenPlatforms = 3f;
             public const float maxDistanceBetweenPlatforms = 4.75f;
             public const float randomHorizontalOffset = 6f;
             public const string platformTag = "Floor";

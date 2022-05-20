@@ -21,11 +21,15 @@ public class HorizontalMovement : MonoBehaviour
     [SerializeField]
     private int multiplyingFactor = 1000;
 
+    private Animator animator;
+
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         speed = gameObject.GetComponent<DataPlayer>().GetSpeed();
         jumpSpeed = gameObject.GetComponent<DataPlayer>().GetJumpSpeed();
+
+        animator = gameObject.GetComponent<Animator>();
     }
 
     // get input values each frame
@@ -37,6 +41,7 @@ public class HorizontalMovement : MonoBehaviour
         // playerInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
         playerInput = new Vector2(Input.GetAxis("Horizontal"), 0);
+        animator.SetFloat("Horizontal", playerInput.x);
 
         if (canJump && Input.GetButtonDown("Jump"))
         {
@@ -60,6 +65,7 @@ public class HorizontalMovement : MonoBehaviour
         {
             rb.AddForce(multiplyingFactor * Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             shouldJump = false;
+            animator.SetBool("Jump", true);
         }
     }
 
@@ -70,6 +76,7 @@ public class HorizontalMovement : MonoBehaviour
         {
             canJump = true;
             gameObject.transform.tag = "onFloor";
+            animator.SetBool("Jump", false);
         }
     }
 
